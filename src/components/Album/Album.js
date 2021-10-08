@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 });
+const y = new Value(0);
 
 export default ({ onPress, isPlaying, onPressShuffle }) => {
-  const y = new Value(0);
   return (
     <View style={styles.container}>
       <Cover {...{ y, album }} />
