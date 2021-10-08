@@ -1,5 +1,10 @@
 # Realify 🟦🧘🎧
 
+<div align="center" style="flex-direction: column">
+    <img src="https://raw.github.com/asimonv/realify/master/screenshots/1.png" width="300px" style="margin-right: 20px"/> 
+    <img src="https://raw.github.com/asimonv/realify/master/screenshots/2.png" width="300px" /> 
+</div>
+
 🧑‍💻 To run the app:
 
 - `yarn install`
