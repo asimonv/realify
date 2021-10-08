@@ -110,6 +110,7 @@ export default ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentPositionMillis, setCurrentPositionMillis] = useState(0);
   const [durationMillis, setDurationMillis] = useState(0);
+  const [isLoadingAudio, setIsLoadingAudio] = useState(false);
   const [sound, setSound] = useState();
 
   useCode(() => {
@@ -217,7 +218,12 @@ export default ({
   };
 
   const handlePlaybackUpdate = async status => {
-    const { positionMillis, didJustFinish, isPlaying: isAudioPlaying } = status;
+    const {
+      positionMillis,
+      didJustFinish,
+      isPlaying: isAudioPlaying,
+      progressUpdateIntervalMillis,
+    } = status;
 
     if (didJustFinish) {
       if (isShuffle) {
@@ -232,7 +238,13 @@ export default ({
     }
 
     if (isAudioPlaying) {
-      setCurrentPositionMillis(positionMillis);
+      setCurrentPositionMillis(prev => {
+        const finalPositionMillis =
+          positionMillis === 1
+            ? prev + progressUpdateIntervalMillis
+            : positionMillis;
+        return finalPositionMillis;
+      });
     }
   };
 
@@ -269,14 +281,28 @@ export default ({
       }
 
       const { tracks } = album;
+
+      setIsLoadingAudio(true);
+
       const {
         sound: playbackObj,
         status: { durationMillis },
-      } = await Audio.Sound.createAsync(tracks[currentSongIndex].uri, {
-        shouldPlay: isPlaying,
-      });
-      playbackObj.setOnPlaybackStatusUpdate(handlePlaybackUpdate);
-      setDurationMillis(durationMillis);
+      } = await Audio.Sound.createAsync(
+        tracks[currentSongIndex].uri,
+        {
+          shouldPlay: isPlaying,
+        },
+        handlePlaybackUpdate
+      );
+
+      setIsLoadingAudio(false);
+
+      const finalDurationMillis =
+        durationMillis === 1
+          ? tracks[currentSongIndex].duration
+          : durationMillis;
+
+      setDurationMillis(finalDurationMillis);
       setSound(playbackObj);
     })();
   }, [currentSongIndex]);
@@ -320,6 +346,7 @@ export default ({
             isPlaying={isPlaying}
             albumData={album}
             isShuffle={isShuffle}
+            isLoadingAudio={isLoadingAudio}
             track={album.tracks[currentSongIndex]}
             onPress={() => {
               goDown.setValue(1);

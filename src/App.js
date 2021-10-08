@@ -6,7 +6,11 @@ import Album from "./components/Album";
 import BottomTab from "./components/BottomTab";
 import LoadAssets from "./components/LoadAssets";
 
-const assets = [require("../assets/kinggizz.jpeg")];
+const assets = [
+  require("../assets/kinggizz.jpeg"),
+  require("./assets/images/kg.jpeg"),
+  require("./assets/images/poly.jpeg"),
+];
 
 const fonts = [
   { LeituraNews: require("../assets/fonts/LeituraNews-Roman4.otf") },

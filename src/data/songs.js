@@ -5,7 +5,7 @@ export const album = {
   tracks: [
     {
       name: "Crumbling Castle",
-      uri: require("../assets/songs/1.mp3"),
+      uri: require("../assets/songs/0_1.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),
@@ -15,7 +15,7 @@ export const album = {
     },
     {
       name: "Polygondwanaland",
-      uri: require("../assets/songs/2.mp3"),
+      uri: require("../assets/songs/0_2.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),
@@ -25,7 +25,7 @@ export const album = {
     },
     {
       name: "The Castle in the Air",
-      uri: require("../assets/songs/3.mp3"),
+      uri: require("../assets/songs/0_3.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),
@@ -35,7 +35,7 @@ export const album = {
     },
     {
       name: "Desserted Dunes Welcome Weary Feet",
-      uri: require("../assets/songs/4.mp3"),
+      uri: require("../assets/songs/0_4.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),
@@ -45,7 +45,7 @@ export const album = {
     },
     {
       name: "Inner Cell",
-      uri: require("../assets/songs/5.mp3"),
+      uri: require("../assets/songs/0_5.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),
@@ -55,7 +55,7 @@ export const album = {
     },
     {
       name: "Loyalty",
-      uri: require("../assets/songs/6.mp3"),
+      uri: require("../assets/songs/0_6.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),
@@ -65,7 +65,7 @@ export const album = {
     },
     {
       name: "Horology",
-      uri: require("../assets/songs/7.mp3"),
+      uri: require("../assets/songs/0_7.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),
@@ -75,7 +75,7 @@ export const album = {
     },
     {
       name: "Tetrachromacy",
-      uri: require("../assets/songs/8.mp3"),
+      uri: require("../assets/songs/0_8.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),
@@ -85,7 +85,7 @@ export const album = {
     },
     {
       name: "Searching...",
-      uri: require("../assets/songs/9.mp3"),
+      uri: require("../assets/songs/0_9.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),
@@ -95,7 +95,7 @@ export const album = {
     },
     {
       name: "The Fourth Colour",
-      uri: require("../assets/songs/10.mp3"),
+      uri: require("../assets/songs/0_10.mp3"),
       album: {
         name: "Polygondwanaland",
         cover: require("../assets/images/poly.jpeg"),

@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
     height: 4,
     borderRadius: 2,
     position: "absolute",
-    bottom: -5,
+    bottom: -3,
+    zIndex: 1000,
   },
   centeredRows: {
     alignItems: "center",
@@ -95,6 +96,7 @@ export default ({
   albumData,
   handleOnChangeSlider,
   handleOnSlidingComplete,
+  isLoadingAudio,
   isPlaying,
   onPressPlayback = () => {},
   currentPositionMillis,
@@ -125,13 +127,21 @@ export default ({
       />
       <View style={styles.container}>
         <View style={styles.header}>
-          <RectButton style={styles.button} {...{ onPress }}>
+          <RectButton
+            style={styles.button}
+            {...{ onPress }}
+            enabled={!isLoadingAudio}
+          >
             <View accessible accessibilityRole="button">
               <Icon name="chevron-down" color="white" size={24} />
             </View>
           </RectButton>
           <Text style={styles.title}>{track.album.name}</Text>
-          <RectButton style={styles.button} {...{ onPress }}>
+          <RectButton
+            style={styles.button}
+            {...{ onPress }}
+            enabled={!isLoadingAudio}
+          >
             <View accessible accessibilityRole="button">
               <Icon name="more-horizontal" color="white" size={24} />
             </View>
@@ -158,6 +168,7 @@ export default ({
             <Text style={styles.artist}>{artist}</Text>
           </View>
           <RectButton
+            enabled={!isLoadingAudio}
             style={styles.centeredRows}
             onPress={() => onPressPlayback("shuffle")()}
           >
@@ -170,6 +181,7 @@ export default ({
           </RectButton>
         </View>
         <Slider
+          disabled={isLoadingAudio}
           style={styles.slider}
           minimumValue={0}
           maximumValue={durationMillis}
@@ -189,26 +201,55 @@ export default ({
           </Text>
         </View>
         <View style={styles.controls}>
-          <BaseButton onPress={() => onPressPlayback("replay-30")()}>
-            <MaterialIcons name="replay-30" size={32} color="white" />
+          <BaseButton
+            onPress={() => onPressPlayback("replay-30")()}
+            enabled={!isLoadingAudio}
+          >
+            <MaterialIcons
+              name="replay-30"
+              size={32}
+              color={`rgba(255,255,255,${isLoadingAudio ? 0.5 : 1})`}
+            />
           </BaseButton>
-          <BaseButton onPress={() => onPressPlayback("stepbackward")()}>
-            <AntDesign name="stepbackward" color="white" size={32} />
+          <BaseButton
+            onPress={() => onPressPlayback("stepbackward")()}
+            enabled={!isLoadingAudio}
+          >
+            <AntDesign
+              name="stepbackward"
+              color={`rgba(255,255,255,${isLoadingAudio ? 0.5 : 1})`}
+              size={32}
+            />
           </BaseButton>
           <BaseButton
             onPress={() => onPressPlayback(isPlaying ? "pause" : "play")()}
+            enabled={!isLoadingAudio}
           >
             <AntDesign
               name={isPlaying ? "pausecircle" : "play"}
-              color="white"
+              color={`rgba(255,255,255,${isLoadingAudio ? 0.5 : 1})`}
               size={48}
             />
           </BaseButton>
-          <BaseButton onPress={() => onPressPlayback("stepforward")()}>
-            <AntDesign name="stepforward" color="white" size={32} />
+          <BaseButton
+            onPress={() => onPressPlayback("stepforward")()}
+            enabled={!isLoadingAudio}
+          >
+            <AntDesign
+              name="stepforward"
+              color={`rgba(255,255,255,${isLoadingAudio ? 0.5 : 1})`}
+              size={32}
+            />
           </BaseButton>
-          <BaseButton onPress={() => onPressPlayback("forward-30")()}>
-            <MaterialIcons name="forward-30" size={32} color="white" />
+          <BaseButton
+            onPress={() => onPressPlayback("forward-30")()}
+            enabled={!isLoadingAudio}
+          >
+            <MaterialIcons
+              name="forward-30"
+              size={32}
+              color={`rgba(255,255,255,${isLoadingAudio ? 0.5 : 1})`}
+            />
           </BaseButton>
         </View>
       </View>

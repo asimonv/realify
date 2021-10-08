@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { RectButton } from "react-native-gesture-handler";
 
@@ -12,9 +12,11 @@ const Track = ({ track, artist, index, onPress = () => {} }) => (
       <Text style={styles.name}>{track.name}</Text>
       <Text style={styles.artist}>{track.artist || artist}</Text>
     </View>
-    <View style={styles.cell}>
-      <Icon name="more-horizontal" color="#b2b3b4" size={24} />
-    </View>
+    <Image
+      style={styles.image}
+      source={track.album.cover}
+      resizeMode="contain"
+    />
   </RectButton>
 );
 
@@ -22,6 +24,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     backgroundColor: "white",
+    alignItems: "center",
   },
   cell: {
     padding: 16,
@@ -30,6 +33,12 @@ const styles = StyleSheet.create({
   index: {
     color: "#b2b3b4",
     fontFamily: "AcuminProLight",
+  },
+  image: {
+    width: 50,
+    height: 50,
+    marginRight: 16,
+    borderRadius: 5,
   },
   artist: {
     color: "#b2b3b4",

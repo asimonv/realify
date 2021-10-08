@@ -83,14 +83,12 @@ const styles = StyleSheet.create({
   },
   artistContainer: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: "center",
     alignItems: "center",
   },
   artist: {
     textAlign: "center",
     color: "white",
     fontSize: 48,
-    fontWeight: "bold",
     fontFamily: "LeituraNews",
   },
   header: {
