@@ -5,6 +5,14 @@
     <img src="https://raw.github.com/asimonv/realify/master/screenshots/2.png" width="300px" /> 
 </div>
 
+# Features
+
+- Play, pause, skip, forward, go back 30 seconds.
+- Background playback.
+- Slider to change track position.
+- Shuffle play.
+- Control playback from different views from the app.
+
 🧑‍💻 To run the app:
 
 - `yarn install`
@@ -23,6 +31,7 @@
 - You can pause and play right from the MiniPlayer!
 - When you finish playing the list, it will pause and will set the first song as the current one.
 - I made an icon 🟦
+- Status bar changes style depending if the Player is opened or not.
 
 Misc Notes:
 
