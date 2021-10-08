@@ -23,6 +23,7 @@ Misc Notes:
 
 - I took some design inspiration from the Spotify app but using some of the Real design language (mostly colors and fonts).
 - Some functionalities "don't work", like presing the Search and Home tabs, since I just wanted to add them to make the app look more _real_.
+- I didn't have much time to create tests. Sorry about that!
 
 🧐 Logic notes:
 
